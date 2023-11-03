@@ -15,24 +15,24 @@ public class Gui {
         buttons = new JButton[12];
     }
 
-    public void init(int width, int height, String title) {
-        frame.setSize(width, height);
-        frame.setTitle(title);
+    public void criar(int largura, int altura, String titulo) {
+        frame.setSize(largura, altura);
+        frame.setTitle(titulo);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         mainPanel.setLayout(new GridLayout(2, 6));
 
         for (int i = 0; i < buttons.length; i++) {
-            buttons[i] = new JButton("Botao " + i);
+            buttons[i] = new JButton("" + i);
             mainPanel.add(buttons[i]);
         }
 
         infoPanel.add(new JLabel("teste"));
 
         frame.add(mainPanel, BorderLayout.CENTER);
-        frame.add(new JButton("Botao WEST"), BorderLayout.WEST);
-        frame.add(new JButton("Botao EAST"), BorderLayout.EAST);
+        frame.add(new JButton("0"), BorderLayout.WEST);
+        frame.add(new JButton("0"), BorderLayout.EAST);
         frame.add(infoPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
