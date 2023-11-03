@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Gui {
+public class Gui implements ActionListener {
 
     private JFrame frame;
     private JPanel mainPanel;
@@ -15,6 +16,12 @@ public class Gui {
         buttons = new JButton[12];
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Chame o metodo jogar() da classe jogo
+        System.out.println("teste!");
+    }
+
     public void criar(int largura, int altura, String titulo) {
         frame.setSize(largura, altura);
         frame.setTitle(titulo);
@@ -25,6 +32,15 @@ public class Gui {
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton("" + i);
+            buttons[i].addActionListener(this);
+            // final int posicao = i;
+            // buttons[i].addActionListener(new ActionListener() {
+            //     public void actionPerformed(ActionEvent e) {
+            //         // chama os metodos para a jogada
+
+            //         // atualiza a interface grafica
+            //     }
+            // });
             mainPanel.add(buttons[i]);
         }
 
